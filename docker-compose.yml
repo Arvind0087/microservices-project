@@ -1,0 +1,24 @@
+services:
+  api-gateway:
+    image: arvind090/api-gateway:latest
+    container_name: api-gateway
+    ports:
+      - "8000:8000"
+    depends_on:
+      - user-service
+      - order-service
+    restart: always
+
+  user-service:
+    image: arvind090/user-service:latest
+    container_name: user-service
+    ports:
+      - "8001:8001"
+    restart: always
+
+  order-service:
+    image: arvind090/order-service:latest
+    container_name: order-service
+    ports:
+      - "8002:8002"
+    restart: always

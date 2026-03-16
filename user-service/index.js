@@ -3,8 +3,8 @@ const app = express();
 
 app.get("/users", (req, res) => {
   res.json([
-    { id: 1, name: "John" },
-    { id: 2, name: "David" }
+    { id: 1, name: "Arvind" },
+    { id: 2, name: "Sanjay" }
   ]);
 });
 
