@@ -4,10 +4,15 @@ services:
     container_name: api-gateway
     ports:
       - "8000:8000"
+    environment:
+      - USER_SERVICE_URL=http://user-service:8001
+      - ORDER_SERVICE_URL=http://order-service:8002
     depends_on:
       - user-service
       - order-service
     restart: always
+    networks:
+      - microservices-net
 
   user-service:
     image: arvind090/user-service:latest
@@ -15,6 +20,8 @@ services:
     ports:
       - "8001:8001"
     restart: always
+    networks:
+      - microservices-net
 
   order-service:
     image: arvind090/order-service:latest
@@ -22,3 +29,9 @@ services:
     ports:
       - "8002:8002"
     restart: always
+    networks:
+      - microservices-net
+
+networks:
+  microservices-net:
+    driver: bridge
