@@ -8,7 +8,7 @@ const ORDER_SERVICE_URL = process.env.ORDER_SERVICE_URL || "http://order-service
 
 // Health check
 app.get("/health", (req, res) => {
-  res.json({ message: "API Gateway is running!", status: "ok" });
+  res.json({ message: "API Gateway is running on Port 8000!", status: "ok" });
 });
 
 // Proxy /users → user-service
